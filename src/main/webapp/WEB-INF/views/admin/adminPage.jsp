@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -90,16 +89,11 @@ hr {
     </tr>
     
     <tr>
-    <c:forEach var="member" items="${visitors}">
-       <td> ${member.visitor}</td>
-       
-    </c:forEach>
+    <td>180</td>
+    <td>200</td>
+    <td>8300</td>
     </tr>
-
     </table>
-
-
-
     <br><br><br><br>
     
     
@@ -130,23 +124,16 @@ hr {
     
     <!-- 차트 --> 
     <script> 
-    	var ctx = document.getElementById('myChart').getContext('2d');
-    	
-    	var date = new Array();
-    	var visitdata = new Array();
-    	<c:forEach var="member" items="${visitorGraph}">date.push("${member.visitdate}");visitdata.push("${member.visitor}"); </c:forEach>
+    	var ctx = document.getElementById('myChart').getContext('2d'); 
         var chart = new Chart(ctx, 
         	{ // 챠트 종류를 선택 
             	type: 'line', // 챠트를 그릴 데이타 
             	data: { 
-                	labels: date, 						
-                	
-                	
-                	datasets: [{ 
+                	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], 						datasets: [{ 
                     	label: '방문자 수 차트', 
                         backgroundColor: 'transparent', 
                         borderColor: 'red', 
-                        data: visitdata
+                        data: [400, 100, 500, 1600, 700, 3000, 2000] 
                      }] 
                     }, 
                     // 옵션 
@@ -155,10 +142,13 @@ hr {
     </script>
 
 
+    
+    
+    
     <h4><b>수익 목표 달성률</b></h4>
     <br>
     <div class="w3-grey" style="width:70%;">
-      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:${reachedCost}%">${reachedCost}%</div>
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:65%">65%</div>
     </div>
     <br><br>
     <hr>
@@ -169,21 +159,38 @@ hr {
           <h4>How much I charge</h4>
     <!-- Pricing Tables -->
 
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white ">
+          <li class="w3-black w3-center w3-xlarge w3-padding-32">이번주 인기 상품 품목</li>
+          <li class="w3-padding-16"><b>1. MSI GL65 Leopard 10SFK-062 &nbsp;</b><button 
+          class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off"  onclick="location.href ='../productPage/detailPage.jsp'" >이동</button></li>
+          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+        </ul>
+      </div>
       
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white ">
-          <li class="w3-black w3-center w3-xlarge w3-padding-32">인기 상품 품목</li>
-
-	   	 <table>
-	   	    
-   			 <c:forEach end="4" varStatus="i" var="member" items="${topItemList}">
-   			  <tr>
-     		  <td> <li class="w3-padding-16"><b> ${i.index + 1}. &nbsp;</b><td>${member.itemName}</li></td>
-       		  </tr>
-    		</c:forEach>
-    		
-
-    	</table>
+          <li class="w3-black w3-center w3-xlarge w3-padding-32">이번달 인기 상품 품목</li>
+          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+        </ul>
+      </div>
+      
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white ">
+          <li class="w3-black w3-center w3-xlarge w3-padding-32">누적 인기 상품 품목</li>
+          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          
+          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
         </ul>
       </div>
       
