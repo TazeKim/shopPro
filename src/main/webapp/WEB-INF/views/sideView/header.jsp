@@ -14,7 +14,6 @@
 	      <button class="w3-button w3-black">전체</button>
 	      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>문구</button>
 	      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>유아</button>
-	      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>이지윤</button>
 	      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>신발</button>
 	      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>가구</button>
 	    </div>
