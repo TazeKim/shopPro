@@ -64,11 +64,4 @@ public class CartDAOImpl implements CartDAO {
 		// TODO Auto-generated method stub
 		sqlSession.insert(namespace+".inputOrder",vo);
 	}
-
-	@Override
-	public void inputOrderTo(CartVO cVO) throws Exception {
-		// TODO Auto-generated method stub
-		sqlSession.insert(namespace+".inputOrderTo",cVO);
-		
-	}
 }

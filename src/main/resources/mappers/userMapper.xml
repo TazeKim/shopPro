@@ -31,11 +31,9 @@
 	
 	<select id="readTopItem" resultType="com.kic.shopPro.domain.TopItemVO">
 		<![CDATA[ 	select i.itemname
-					from shoppro.orderlist o, shoppro.item i
-					where o.itemid = i.itemid
-					and pay= "결제 완료" 
-					group by i.itemname
-					order by count desc;  ]]>
+					from orderlist o, item i
+					where o.orderid = i.itemid
+					and pay= "결제 완료" order by count desc  ]]>
 	</select>
 	<select id="getAllItemsFromOrder" resultType="com.kic.shopPro.domain.MypageOrderVO">
       select * from orderlist where memid=#{memid}

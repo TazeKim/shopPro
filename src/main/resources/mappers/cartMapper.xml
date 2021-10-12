@@ -36,26 +36,12 @@
 		(
 		#{item.memid},
 		#{item.itemid},
-		"결제 완료",
+		"결제완료",
 		"배송준비중",
 		now(),
 		#{item.price},
 		#{item.itemcount}
 		)
 		</foreach>
-	</insert>
-
-	<insert id="inputOrderTo" parameterType="java.util.List">
-		insert into orderlist(memid,itemid,pay,curstate,date,price,count)
-		values 
-		(
-		#{memid},
-		#{itemid},
-		"결제 완료",
-		"배송준비중",
-		now(),
-		#{price},
-		#{itemcount}
-		)
 	</insert>
 </mapper>

@@ -23,7 +23,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h4><b>마이페이지</b></h4>
   </div>
   <div class="w3-bar-block">
-  	<a onclick="location.href ='/shopPro/signout'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>로그아웃</b>
     <a href="#orderlist" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>구매 내역 확인</a> 
     <a href="#" onclick="location.href ='/shopPro/UpdateMeminfo'" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>내 정보 수정</a> 
   </div>
@@ -78,7 +77,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<td style="text-align:center;" width="11%"  height="50px"><c:out value="${orderlist.date}"/></td>
 				<td style="text-align:center;" width="11%"  height="50px"><c:out value="${orderlist.curstate}"/></td>
 				<td style="text-align:center;" height="50px"><button class="w3-button w3-teal w2-padding w3-hover-red" style="text-align:center">주문 취소</button></td>		
-				<td style="text-align:center;" height="50px"><button onclick="location.href ='/shopPro/reviewWrite?itemid=${orderlist.itemid}'" class="w3-button w3-teal w2-padding w3-hover-red" style="text-align:center">리뷰 등록</button></td>
+				<td style="text-align:center;" height="50px"><button class="w3-button w3-teal w2-padding w3-hover-red" style="text-align:center">리뷰 등록</button></td>
 			</tr>
 		</c:forEach>
 		
