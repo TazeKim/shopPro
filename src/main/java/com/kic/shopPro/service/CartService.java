@@ -12,4 +12,5 @@ public interface CartService {
 	public void deleteCartMethod(String memid,String itemid) throws Exception;
 	public void inputOrderMethod(List<CartVO> vo) throws Exception;
 	public void deleteAllCartMethod(String id) throws Exception;
+	public void inputOrderMethodTo(CartVO cVO) throws Exception;
 }

@@ -18,4 +18,7 @@ public interface CartDAO {
 	public void deleteAllCart(String id) throws Exception;
 	
 	public void inputOrder(List<CartVO> vo) throws Exception;
+	
+	public void inputOrderTo(CartVO cVO) throws Exception;
+	
 }

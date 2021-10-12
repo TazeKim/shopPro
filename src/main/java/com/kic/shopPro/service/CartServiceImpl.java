@@ -55,4 +55,11 @@ public class CartServiceImpl implements CartService {
 		cartDao.deleteAllCart(id);
 	}
 
+	@Override
+	public void inputOrderMethodTo(CartVO cVO) throws Exception {
+		// TODO Auto-generated method stub
+		cartDao.inputOrderTo(cVO);
+		
+	}
+
 }

@@ -20,12 +20,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.protobuf.TextFormat.ParseException;
 import com.kic.shopPro.dao.LoginDAO;
+import com.kic.shopPro.domain.CartVO;
 import com.kic.shopPro.domain.ItemVO;
 import com.kic.shopPro.domain.MemberVO;
 import com.kic.shopPro.domain.MypageOrderVO;
 import com.kic.shopPro.domain.TopItemVO;
 import com.kic.shopPro.domain.VisitorGraphVO;
 import com.kic.shopPro.domain.VisitorVO;
+import com.kic.shopPro.service.CartService;
 import com.kic.shopPro.service.ItemService;
 import com.kic.shopPro.service.LoginService;
 import com.kic.shopPro.service.RegisterService;
@@ -40,7 +42,9 @@ public class UserController {
 	@Autowired
 	private ItemService itemService;
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
+	
+	@Autowired
+	private CartService cartService;
 	@Autowired
 	private VisitorService visitorService;
 	
@@ -123,16 +127,26 @@ public class UserController {
 		}
 		model.addAttribute("foodItemList", iVO);
 		model.addAttribute("clothItemList",iVO_cloth);
-		return "redirect: /shopPro/main";
+		return "redirect:/main";
 		}
 	
 	@RequestMapping(value="/pay", method=RequestMethod.POST)
-	public String payForItemMethod(@RequestParam("itemid") String itemid, @RequestParam("itemcount") int itemcount) throws Exception{
+	public String payForItemMethod(@RequestParam("itemid") String itemid, @RequestParam("itemcount") int itemcount, HttpSession session) throws Exception{
 		
 		ItemVO iVO = itemService.readFoodItemByIdMethod(itemid);
 		int newStored = iVO.getStored() - itemcount;
 		iVO.setStored(newStored);
 		itemService.updateItemStore(iVO);
+		MemberVO get = (MemberVO) session.getAttribute("login");
+		
+		int price = itemcount*iVO.getPrice();
+		
+		CartVO cv = new CartVO();
+		cv.setItemcount(itemcount);
+		cv.setPrice(price);
+		cv.setItemid(itemid);
+		cv.setMemid(get.getId());
+		cartService.inputOrderMethodTo(cv);
 		return "redirect:/main";
 	}
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
